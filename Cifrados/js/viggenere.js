@@ -152,6 +152,7 @@ function revision(mess, desp) {
     }
     if (desp.length > mess.length) {
         sz();
+        acc= false
     }
     return acc;
 }

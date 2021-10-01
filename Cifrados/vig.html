@@ -26,14 +26,14 @@
             <form>
                 <h1>Cifrado de Viggenere</h1>
                 Mensaje<br>
-                <input type="text" id="mess"><br><br>
+                <input type="text" id="mess" onkeypress="return validarm(event)"><br><br>
                 Llave<br>
-                <input type="text" id="llave"><br>
+                <input type="text" id="llave" onkeypress="return validarm(event)"><br>
                 <br>
                 <center><input type="button" id="ci" value="Cifrar">
-                    <input type="button" id="de" value="Descifrar"><br>
+                    <input type="button" id="de" value="Descifrar"><br></center>
                 
-                <input type="text" id="rs" disabled></center>
+                <input type="text" id="rs" disabled>
             </form>
         </div>
     </center>

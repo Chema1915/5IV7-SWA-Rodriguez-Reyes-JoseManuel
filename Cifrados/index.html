@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="./js/main.js"></script>
-    <script type="text/javascript" src="./js/viggenere.js"></script>
+    <script type="text/javascript" src="js/cesar.js"></script>
     <link rel="stylesheet" href="./css/cesar.css" />
     <title>Menu Cifrados</title>
 </head>
@@ -14,20 +14,22 @@
 <body>
     <ul>
         <center><li><a  class="active" href="index.html">Cifrado de Cesar</a></li>
-            <li><a  href="vig.html">Cifrado de Viggenere</a></li></center></ul>
+            <li><a  href="vig.html">Cifrado de Viggenere</a></li>
+        </center></ul>
         
             <center>
                 <div class="formato">
                     <form>
-                        <h1>Cifrado de Viggenere</h1>
+                        <h1>Cifrado de Cesar</h1>
                         Mensaje<br>
-                        <input type="text" id="mess"><br><br>
-                      
+                        <input type="text" id="cadena" onkeypress="return validarm(event)"><br><br>
+                        <center><input type="range" min="1" max="27" value="13"  id="desplazamiento" oninput="this.nextElementSibling.value =this.value">
+                        <output>13</output></center>
                         <br>
-                        <center><input type="button" id="ci" value="Cifrar">
-                            <input type="button" id="de" value="Descifrar"><br>
-                        
-                        <input type="text" id="rs" disabled></center>
+                        <center><input type="button" id="ci" value="Cifrar" onclick="cifrar()">
+                            <input type="button" id="de" value="Descifrar" onclick="descifrar()">
+                        <br><br></center>
+                        <center><input type="text" id="resultado" disabled></center>
                     </form>
                 </div>
             </center>
