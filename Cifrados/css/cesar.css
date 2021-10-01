@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    font-family: 'Roboto';
+    background-color: lightgray;
+}
+
+.formato{
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    height: 400px;
+    justify-content: space-evenly;
+    display: flex;
+    margin-top: 5%;
+    font-size: 20px;
+    text-align: start;
+    
+}
+#mess{
+    margin-top: 1%;
+    width: 90%;
+    height: 9%;
+    border-radius: 15px;
+
+}
+#llave{
+    margin-top: 1%;
+    width: 90%;
+    height: 5%;
+    border-radius: 15px;
+
+}
+button{
+    
+}
+ul {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; 
+    
+    font-size: 20px;
+
+}
+
+li {
+  
+    float:left;
+     
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
