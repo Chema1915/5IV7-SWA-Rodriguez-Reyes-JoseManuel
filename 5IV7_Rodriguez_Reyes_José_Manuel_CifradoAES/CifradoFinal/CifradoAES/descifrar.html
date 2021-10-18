@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script src="js/descifrado.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="container">
+    <center>
+    <nav>
+        <h1>Descifrado AES</h1>
+      </nav>
+    <div class="login-form">
+       
+        <a href="index.html"><button class="boton">Regresar</button></a><br>
+        <input type="file" id="archivos" class="boton" style="font-size: 12px;" accept="application/pdf, text/plain, application/msword">
+        <br><p style="font-size: 90%;" >O escribe el texto a descifrar</p><br>
+        <textarea id="contenido" cols="80" readonly></textarea>
+        <p>Ingresa la clave</p>
+        <textarea id="clave" cols="80" rows="4"></textarea>
+        <br>
+        <input type="button" id="descifrado" value="Descifrar" class="boton">
+        <br>
+        <p>Mensaje descifrado Hexadecimal</p>
+        <br>
+        <textarea cols="80" rows="4" id="mensaje-descifrado-hex" readonly></textarea>
+        <br>
+        <p>Mensaje descifrado con formato</p>
+        <br>
+        <textarea cols="80" rows="4" id="mensaje-descifrado" readonly></textarea>
+        <br>
+        <p>Descarga</p>
+        <button type="submit" class="boton" id="descargar_txt">Descargar</button>
+   
+        
+    </div>
+    
+    <footer>
+        <div class="container-down">
+            <p>Rodriguez Reyes José Manuel</p>
+        </div>
+    </footer>
+    <script>
+        $('#descargar_txt').click(function(){
+            var cifrado = document.getElementById('mensaje-descifrado').value;
+            if(cifrado==""){
+                alert("Se debe de descifrar un texto");
+            }
+            else{
+                var blob = new Blob([cifrado], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "Mensaje_Descifrado.txt");
+            }
+        });
+    </script>
+    <script>
+        function abrirArchivos(evento){
+            let archivo = evento.target.files[0];
+            if(archivo){
+                let reader = new FileReader();
+                reader.onload =  function(e){
+                    let contenido = e.target.result;
+                    document.getElementById('contenido').value = contenido;
+                };
+                reader.readAsText(archivo);
+            }
+        }
+        window.addEventListener('load', () => {
+            document.getElementById('archivos').addEventListener('change', abrirArchivos);
+        });
+    </script>
+    </center>
+</body>
+</html>

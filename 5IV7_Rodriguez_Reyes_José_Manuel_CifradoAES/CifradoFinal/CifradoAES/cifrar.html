@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script src="js/cifrado.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body class="container"><center>
+    <nav>
+        <h1>Cifrado AES</h1>
+      </nav>
+    <div class="login-form">
+        <a href="index.html"><button class="boton">Regresar</button></a>
+        <p>Ingresa el mensaje a cifrar</p>
+        <textarea id="mensaje" rows="4"></textarea>
+        <p>Ingresa la clave</p>
+        <textarea id="clave" rows="4"></textarea>
+        <br>
+        <p>Ingresa el tipo de cifrado de AES </p>
+        <br>
+        <input type="radio" id="AES-128" name="tipo-cifrado" value="AES-128">AES-128
+        <br>
+        <input type="radio" id="AES-192" name="tipo-cifrado" value="AES-192">AES-192
+        <br>
+        <input type="radio" id="AES-256" name="tipo-cifrado" value="AES-256">AES-256
+        <br> <br>
+        <button type="submit" class="boton" id="cifrado">Cifrar</button>
+        <p>Mensaje cifrado</p>
+        <textarea cols="80" rows="4" id="mensaje-cifrado" readonly></textarea>
+        <p>Descarga</p>
+        <button type="submit" class="boton" id="descargar_txt">Descargar</button>
+        
+       
+    </div>
+    
+    <footer>
+        <div class="container-down">
+            <p>Rodriguez Reyes José Manuel 5IV7</p>
+        </div>
+    </footer>
+</center>
+    <script>
+        $('#descargar_txt').click(function(){
+            var cifrado = document.getElementById('mensaje-cifrado').value;
+            if(cifrado==""){
+                alert("Se debe de cifrar un texto");
+            }
+            else
+            {
+                var blob = new Blob([cifrado], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "Mensaje_Cifrado.txt");
+            }
+        });
+    </script>
+</body>
+</html>
